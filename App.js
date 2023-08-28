@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import Routes from './src/Routes';
+import Routes from './src/screen/Routes';
 
 const App = () => {
   return (

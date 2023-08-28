@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Button from '../../../components/Button';
 import Title from '../../../components/Title';
@@ -7,12 +7,33 @@ import Input from '../../../components/Input';
 import {Text} from 'react-native';
 
 const Login = ({navigation}) => {
+  const [values, setValues] = useState({});
+  const onChangeText = (value, key) => {
+    console.log('value', value);
+    setValues(vals => ({
+      ...vals,
+      [key]: value,
+    }));
+  };
+
+  const onSubmit = () => {
+    console.log('valuessss', values?.email);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Title>Welcome Back</Title>
-      <Input placeholder={'Email'} keyboardType={'email-address'} />
-      <Input placeholder={'Password'} secureTextEntry />
-      <Button>Log In</Button>
+      <Input
+        onChage={val => onChangeText(val, 'email')}
+        placeholder={'Email'}
+        keyboardType={'email-address'}
+      />
+      <Input
+        onChage={val => onChangeText(val, 'password')}
+        placeholder={'Password'}
+        secureTextEntry
+      />
+      <Button onPress={onSubmit}>Log In</Button>
 
       <Text
         style={styles.footerText}
