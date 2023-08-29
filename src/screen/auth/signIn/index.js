@@ -4,12 +4,13 @@ import Button from '../../../components/Button';
 import Title from '../../../components/Title';
 import styles from './styles';
 import Input from '../../../components/Input';
-import {Text} from 'react-native';
+import {Alert, Text} from 'react-native';
+import auth from '@react-native-firebase/auth';
 
 const Login = ({navigation}) => {
   const [values, setValues] = useState({});
-  const onChangeText = (value, key) => {
-    console.log('value', value);
+
+  const onChange = (value, key) => {
     setValues(vals => ({
       ...vals,
       [key]: value,
@@ -17,19 +18,36 @@ const Login = ({navigation}) => {
   };
 
   const onSubmit = () => {
-    console.log('valuessss', values?.email);
+    if (!values.email || !values.password) {
+      Alert.alert('Please enter email and password');
+      return;
+    }
+    auth()
+      .signInWithEmailAndPassword(values.email, values.password)
+      .then(() => {
+        console.log('User signed in!');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          Alert.alert('That email address is already in use!');
+        } else if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        } else {
+          Alert.alert(error.message);
+        }
+      });
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <Title>Welcome Back</Title>
       <Input
-        onChage={val => onChangeText(val, 'email')}
+        onChangeText={val => onChange(val, 'email')}
         placeholder={'Email'}
         keyboardType={'email-address'}
       />
       <Input
-        onChage={val => onChangeText(val, 'password')}
+        onChangeText={val => onChange(val, 'password')}
         placeholder={'Password'}
         secureTextEntry
       />
