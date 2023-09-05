@@ -7,7 +7,6 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header title="Home" />
-      <Text>Home</Text>
     </SafeAreaView>
   );
 };
