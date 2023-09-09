@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     color: colors.purple,
-    fontWeight: 'bold',
+    fontWeight: '500',
   },
   image: {
     width: 24,

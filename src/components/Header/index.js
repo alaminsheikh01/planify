@@ -9,11 +9,13 @@ const Header = ({title}) => {
     navigation.openDrawer();
   };
   return (
-    <Pressable onPress={openDrawer} style={styles.container}>
-      <Image style={styles.image} source={require('../../assets/menu.png')} />
-      <Text style={styles.title}>{title}</Text>
-      <View style={styles.icon} />
-    </Pressable>
+    <View style={styles.container}>
+      <Pressable onPress={openDrawer} hitSlop={8}>
+        <Image style={styles.image} source={require('../../assets/menu.png')} />
+        <Text style={styles.title}>{title}</Text>
+        <View style={styles.icon} />
+      </Pressable>
+    </View>
   );
 };
 
