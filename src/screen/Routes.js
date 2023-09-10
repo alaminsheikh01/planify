@@ -37,25 +37,10 @@ const Routes = () => {
     return null;
   }
 
-  // if (user) {
-  //   const logout = () => {
-  //     auth()
-  //       .signOut()
-  //       .then(() => console.log('User signed out!'));
-  //   };
-  //   return (
-  //     <>
-  //       <Text style={{margin: 40}}>Welcome</Text>
-  //       <Text onPress={logout} style={{margin: 40}}>
-  //         Log out
-  //       </Text>
-  //     </>
-  //   );
-  // }
-
   const Tabs = () => {
     return (
-      <Tab.Navigator screenOptions={{tabBarShowLabel: false}}>
+      <Tab.Navigator
+        screenOptions={{tabBarShowLabel: false, headerShown: false}}>
         <Tab.Screen
           options={{
             tabBarIcon: ({focused}) => {

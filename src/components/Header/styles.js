@@ -1,4 +1,3 @@
-import React from 'react';
 import {StyleSheet} from 'react-native';
 import colors from '../../constnts/colors';
 
@@ -14,10 +13,10 @@ const styles = StyleSheet.create({
     color: colors.purple,
     fontWeight: '500',
   },
-  image: {
+  icon: {
     width: 24,
     height: 24,
   },
 });
 
-export default React.memo(styles);
+export default styles;

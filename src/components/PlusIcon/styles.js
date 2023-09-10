@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: colors.blue,
     position: 'absolute',
-    top: 630,
+    top: 670,
     right: 24,
   },
   plus: {

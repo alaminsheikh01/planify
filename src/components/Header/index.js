@@ -11,10 +11,10 @@ const Header = ({title}) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={openDrawer} hitSlop={8}>
-        <Image style={styles.image} source={require('../../assets/menu.png')} />
-        <Text style={styles.title}>{title}</Text>
-        <View style={styles.icon} />
+        <Image style={styles.icon} source={require('../../assets/menu.png')} />
       </Pressable>
+      <Text style={styles.title}>{title}</Text>
+      <View style={styles.icon} />
     </View>
   );
 };
