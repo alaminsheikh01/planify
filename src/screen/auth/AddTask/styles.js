@@ -8,6 +8,12 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
+  describe: {
+    color: colors.black,
+    fontWeight: '500',
+    marginHorizontal: 24,
+    fontSize: 12,
+  },
   content: {
     flex: 1,
     padding: 20,
